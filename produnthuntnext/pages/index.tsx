@@ -1,20 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styled from '@emotion/styled'
+import Layout from '../components/layout/Layout'
+
+const Heading = styled.h1`
+  color: red;  
+`
 
 export default function Home() {
   return (
     <div>
-      <h1>Inicio</h1>
-
-      <style jsx>{`
-          h1{
-            color:red;
-          }
-
-        `}
-
-      </style>
+      <Layout>
+      <Heading>Inicio</Heading>
+      </Layout>      
     </div>
   )
 }
