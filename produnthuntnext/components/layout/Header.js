@@ -1,7 +1,7 @@
 import React from "react";
 import Link from 'next/link'
 import Buscar from '../ui/Buscar'
-
+import Navegacion from './Navegacion'
 const Header = props => {
 
     return(
@@ -11,12 +11,15 @@ const Header = props => {
                 <div>
                     <p>P</p>
                     <Buscar />
-                    {/* Buscador aqui */}
+                    
 
-                    {/* Nav aqui */}
+                   <Navegacion />
                 </div>
                 <div>
-                    {/* Menu de administracion */}
+                    <p>Hola Eduardo</p>
+                    <button type="button"> Cerrar Sesion </button>
+                    <Link href='/'>Login</Link>
+                    <Link href='/'>Crear Cuenta</Link>
                 </div>
             </div>
         </header>
