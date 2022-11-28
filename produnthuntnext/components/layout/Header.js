@@ -42,7 +42,14 @@ const Header = props => {
             `}
         >
             <ContenedorHeader>
-                <div>
+                <div
+                    css={css`
+                        display: flex;
+                        align-items: center;
+                        
+                        
+                    `}
+                >
                     <Logo>P</Logo>
                     <Buscar />
 
