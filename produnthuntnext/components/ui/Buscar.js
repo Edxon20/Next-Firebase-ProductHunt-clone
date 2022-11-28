@@ -7,7 +7,7 @@ const Buscar = props => {
         <form>
             <input type="text" />
             
-            <button type="submit">Buscar </button>
+            <button type="submit">Buscar</button>
         </form>
        
     );
