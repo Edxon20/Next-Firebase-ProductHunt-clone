@@ -7,21 +7,23 @@ import { css } from "@emotion/react"
 import useValidacion from '../hooks/useValidacion'
 import validarCrearCuenta from '../validacion/validarCrearCuenta'
 
-const STATE_INITIAL ={
-  nombre: '',
-  email: '',
-  password: ''
-}
+
 
 export default function CrearCuenta() {
 
-  const {} = useValidacion(STATE_INITIAL,validarCrearCuenta, crearCuenta);
-
-  function crearCuenta () {
-    console.log('Creando cuenta. . .')
+  const STATE_INITIAL ={
+    nombre: '',
+    email: '',
+    password: ''
   }
 
+  const {valores,errores,submitForm,handleSubmit,handleChange} = useValidacion(STATE_INITIAL,validarCrearCuenta, crearCuenta);
 
+  const {nombre, email, password} = valores;
+
+  function crearCuenta () {
+    console.log('Creando cuenta. . .');
+  }
   return (
     <div>
       <Layout>
@@ -32,14 +34,19 @@ export default function CrearCuenta() {
                 margin-top: 5rem;
             `}
           >Crear Cuenta</h1>
-          <Form>
+          <Form
+            onSubmit={handleSubmit}
+            noValidate
+          >
             <Campo>
-              <label htmlFor='nombre' >Nombre</label>
+              <label htmlFor='nombre' >nombre</label>
               <input
                 type='text'
                 id='nombre'
                 placeholder='Tu nombre'
                 name='nombre'
+                value={nombre}
+                onChange={handleChange}
               />
             </Campo>
             <Campo>
@@ -49,15 +56,19 @@ export default function CrearCuenta() {
                 id='email'
                 placeholder='Tu email'
                 name='email'
+                value={email}
+                onChange={handleChange}
               />
             </Campo>
             <Campo>
-              <label htmlFor='password' >Password</label>
+              <label htmlFor='password' >Email</label>
               <input
                 type='password'
                 id='password'
                 placeholder='Tu password'
                 name='password'
+                value={password}
+                onChange={handleChange}
               />
             </Campo>
 

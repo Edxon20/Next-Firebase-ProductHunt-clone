@@ -18,7 +18,7 @@ const useValidacion = (stateInicial, validar, fn) => {
 
         }
 
-    },[] )
+    },[errores] )
 
     // Funcion que se ejecuta conforme el usuario escribe algo 
     const handleChange = e =>{
@@ -46,3 +46,5 @@ const useValidacion = (stateInicial, validar, fn) => {
     }
 
 }
+
+export default useValidacion;
