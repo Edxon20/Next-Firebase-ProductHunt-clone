@@ -8,7 +8,12 @@ export default function CrearCuenta() {
     <div>
       <Layout>
         <>
-          <h1>Crear Cuenta</h1>
+          <h1
+            css={css`
+                text-align: center;
+                margin-top: 5rem;
+            `}
+          >Crear Cuenta</h1>
           <Form>
             <Campo>
               <label htmlFor='nombre' >Nombre</label>
@@ -38,7 +43,7 @@ export default function CrearCuenta() {
               />
             </Campo>
 
-            <input
+            <InputSubmit
               type='submit'
               value='Crear Cuenta'
             />
