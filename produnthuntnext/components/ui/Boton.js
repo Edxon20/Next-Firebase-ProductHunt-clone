@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import style from '@emotion/styled'
+
 
 const Boton = styled.a`
     font-weight: 700;

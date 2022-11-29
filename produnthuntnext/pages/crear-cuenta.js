@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-
-
+import { Error, Campo, Form, InputSubmit } from '../components/ui/Formulario'
+import { css } from "@emotion/react"
 
 export default function CrearCuenta() {
   return (
@@ -9,8 +9,8 @@ export default function CrearCuenta() {
       <Layout>
         <>
           <h1>Crear Cuenta</h1>
-          <form>
-            <div>
+          <Form>
+            <Campo>
               <label htmlFor='nombre' >Nombre</label>
               <input
                 type='text'
@@ -18,8 +18,8 @@ export default function CrearCuenta() {
                 placeholder='Tu nombre'
                 name='nombre'
               />
-            </div>
-            <div>
+            </Campo>
+            <Campo>
               <label htmlFor='email' >Email</label>
               <input
                 type='text'
@@ -27,8 +27,8 @@ export default function CrearCuenta() {
                 placeholder='Tu email'
                 name='email'
               />
-            </div>
-            <div>
+            </Campo>
+            <Campo>
               <label htmlFor='password' >Password</label>
               <input
                 type='password'
@@ -36,13 +36,13 @@ export default function CrearCuenta() {
                 placeholder='Tu password'
                 name='password'
               />
-            </div>
+            </Campo>
 
             <input
               type='submit'
               value='Crear Cuenta'
             />
-          </form>
+          </Form>
         </>
       </Layout>
     </div>
