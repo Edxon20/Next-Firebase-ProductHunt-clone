@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import Link from 'next/link'
 import Buscar from '../ui/Buscar'
 import Navegacion from './Navegacion'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react';
 import Boton from '../ui/Boton';
+//En app se mueve todo esto. 
+import {FirebaseContext} from '../../firebase';
 
 const ContenedorHeader = styled.div`
     max-width: 1200px;
@@ -30,7 +32,7 @@ const Logo = styled.p`
 
 const Header = props => {
 
-    const user =    false;
+    const {usuario, firebase} = useContext(FirebaseContext)
 
     return (
 
@@ -45,8 +47,7 @@ const Header = props => {
                 <div
                     css={css`
                         display: flex;
-                        align-items: center;
-                        
+                        align-items: center;                        
                         
                     `}
                 >
@@ -62,7 +63,7 @@ const Header = props => {
                         align-items:center;
                     `}
                 >
-                    {user ?
+                    {usuario ?
                         (
                             <>
                                 <p
@@ -70,9 +71,10 @@ const Header = props => {
                             margin-right:2rem;
                             
                         `}
-                                >Hola Eduardo</p>
+                                > Hola: {usuario.displayName}</p>
                                 <Boton
                                     bgColor={true}
+                                    onClick={() => firebase.cerrarSesion()}
                                 > Cerrar Sesion </Boton>
                             </>
                         )
@@ -84,7 +86,10 @@ const Header = props => {
                                     >Login</Boton>
                                 </Link>
                                 <Link href='/crear-cuenta'>
-                                    <Boton>Crear Cuenta</Boton>
+                                    <Boton
+                                        
+                                        
+                                    >Crear Cuenta</Boton>
                                 </Link>
                             </>
                         )}
