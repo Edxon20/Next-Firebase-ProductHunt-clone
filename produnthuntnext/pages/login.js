@@ -23,8 +23,15 @@ const login = () => {
 
   const {email, password} = valores;
 
-   function iniciarSesion () {
-      console.log('Iniciar Sesion...')
+  async function iniciarSesion () {
+
+    try {
+      await firebase.login(email,password);
+      Router.push('/');
+    } catch (error) {
+      guardarError(error.message);
+    }
+      
   }
   return (
     <div>
@@ -67,7 +74,7 @@ const login = () => {
               />
             </Campo>
             { errores.password && <Error>{errores.password}</Error>  }
-
+            {error && <Error>{error}</Error>}
             <InputSubmit
               type='submit'
               value='Iniciar Sesion'

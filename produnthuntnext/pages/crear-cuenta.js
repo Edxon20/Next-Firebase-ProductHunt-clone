@@ -5,8 +5,6 @@ import { Error, Campo, Form, InputSubmit } from '../components/ui/Formulario'
 import { css } from "@emotion/react"
 
 import firebase from '../firebase'
-
-
 //validaciones
 import useValidacion from '../hooks/useValidacion'
 import validarCrearCuenta from '../validacion/validarCrearCuenta'

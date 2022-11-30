@@ -24,6 +24,12 @@ class Firebase {
             })
     }
 
+    // Inicia sesion del usuario 
+    async login(email, password){
+                //Funcion en la documentacion de firebase
+        return this.auth.signInWithEmailAndPassword(email, password);
+    }
+
    
 }
 
