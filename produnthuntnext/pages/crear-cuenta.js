@@ -17,7 +17,7 @@ export default function CrearCuenta() {
     password: ''
   }
 
-  const {valores,errores,submitForm,handleSubmit,handleChange,handleBlur} = useValidacion(STATE_INITIAL,validarCrearCuenta, crearCuenta);
+  const {valores,errores,handleSubmit,handleChange,handleBlur} = useValidacion(STATE_INITIAL,validarCrearCuenta, crearCuenta);
 
   const {nombre, email, password} = valores;
 
