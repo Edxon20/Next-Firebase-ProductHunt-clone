@@ -26,7 +26,7 @@ const login = () => {
   async function iniciarSesion () {
 
     try {
-      await firebase.login(email,password);
+      const usuario = await firebase.login(email,password);
       Router.push('/');
     } catch (error) {
       guardarError(error.message);

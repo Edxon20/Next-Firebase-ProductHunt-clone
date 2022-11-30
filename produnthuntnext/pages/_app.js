@@ -1,22 +1,24 @@
-import App from 'next/app';
-import firebase, { firebaseContext } from '../firebase'
+import App from "next/app";
+import firebase, { FirebaseContext } from "../firebase";
+import useAutenticacion from '../hooks/useAutenticacion'
 
-const MyApp = (props) => {
+const MyApp = props => {
 
-    const {Component, pageProps} = props;
+    const user = useAutenticacion();
+    console.log('LOGGED IN:', user);
+
+    const { Component, pageProps } = props;
 
     return(
-        <firebaseContext.Provider
+        <FirebaseContext.Provider
             value={{
-                firebase
+                firebase,
+                user
             }}
         >
-
-            <Component {...pageProps}/>
-        </firebaseContext.Provider>
+            <Component {...pageProps} />
+        </FirebaseContext.Provider>
     )
-
-
 }
 
 export default MyApp;
