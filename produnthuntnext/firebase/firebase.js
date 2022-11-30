@@ -1,15 +1,30 @@
-import { info } from 'console';
-import app from 'firebase/app';
-import firebaseConfig from './config'
+import app from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
-class Firebase{
-    constructor(){
+import firebaseConfig from './config';
 
-        if(!app.apps.length){
-            app = initializeApp(firebaseConfig);
+class Firebase {
+    constructor() {
+        if(!app.apps.length) {
+            app.initializeApp(firebaseConfig)
         }
-        
+        this.auth = app.auth();
+        this.db = app.firestore();
+        this.storage = app.storage();
     }
+
+    // Registrar un nuevo usuario
+    async registrar(name, email, password) {
+            const nuevoUsuario = await this.auth.createUserWithEmailAndPassword(email, password);
+
+            return await nuevoUsuario.user.updateProfile({
+                displayName : name
+            })
+    }
+
+   
 }
 
 const firebase = new Firebase();
