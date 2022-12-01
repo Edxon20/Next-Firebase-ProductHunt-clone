@@ -4,9 +4,11 @@ import Layout from '../components/layout/Layout'
 import { Error, Campo, Form, InputSubmit } from '../components/ui/Formulario'
 import { css } from "@emotion/react"
 
+
 import firebase from '../firebase'
 //validaciones
 import useValidacion from '../hooks/useValidacion'
+import validarCrearProducto from '../validacion/validarCrearProducto'
 
 const STATE_INITIAL = {
   nombre: '',
@@ -21,7 +23,7 @@ const NuevoProducto = () => {
 
   const [error, guardarError] = useState(false);
 
-  const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INITIAL, validarCrearCuenta, crearCuenta);
+  const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INITIAL, validarCrearProducto, crearCuenta);
 
   const { nombre, empresa, imagen, url, descripcion } = valores;
 
