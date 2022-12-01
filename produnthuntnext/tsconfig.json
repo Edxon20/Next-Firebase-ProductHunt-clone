@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/crear-cuenta.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/crear-cuenta.jsx", "pages/nuevo-producto.js"],
   "exclude": ["node_modules"]
 }

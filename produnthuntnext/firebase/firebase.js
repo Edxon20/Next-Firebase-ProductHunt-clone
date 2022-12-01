@@ -11,6 +11,7 @@ class Firebase {
             app.initializeApp(firebaseConfig)
         }
         this.auth = app.auth();
+        //Para los productos
         this.db = app.firestore();
         this.storage = app.storage();
     }
@@ -34,9 +35,7 @@ class Firebase {
 
     async cerrarSesion(){
         await this.auth.signOut();
-    }
-
-    
+    }     
 
    
 }
